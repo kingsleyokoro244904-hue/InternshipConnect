@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b4f71">
+<title>Internship Connect Nigeria</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0b4f71;--dark:#07364d;--light:#eef7fb;--accent:#16a085;--text:#17313f;--muted:#607985}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#f7fafb;line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:white;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #00000012}
+.nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;color:var(--blue);font-size:18px}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:20px;font-size:14px;font-weight:600}
+nav a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:0;font-size:25px;color:var(--blue)}
+.hero{background:linear-gradient(135deg,var(--dark),var(--blue));color:white;padding:70px 20px}
+.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.badge{display:inline-block;background:#ffffff18;border:1px solid #ffffff35;padding:7px 12px;border-radius:30px;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin-bottom:18px}
+.hero p{font-size:17px;color:#e1f1f7;max-width:650px}
+.btn{display:inline-block;border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer;margin:8px 6px 0 0}
+.primary{background:var(--accent);color:white}
+.secondary{background:white;color:var(--blue)}
+.hero-card{background:#ffffff12;border:1px solid #ffffff25;padding:25px;border-radius:20px;backdrop-filter:blur(8px)}
+.hero-card h3{margin-bottom:10px}
+.notice{background:#fff4d6;color:#654d13;padding:14px;border-radius:12px;margin-top:20px;font-size:14px}
+.container{max-width:1100px;margin:auto;padding:55px 20px}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:30px;color:var(--dark)}
+.section-title p{color:var(--muted);max-width:680px;margin:8px auto}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border-radius:16px;padding:22px;box-shadow:0 5px 22px #12394b0d;border:1px solid #e5eef2}
+.card h3{font-size:18px;color:var(--dark);margin-bottom:8px}
+.status{display:inline-block;font-size:12px;font-weight:700;padding:5px 9px;border-radius:20px;background:#e5f8ef;color:#13754f;margin:8px 0 12px}
+.card p{color:var(--muted);font-size:14px}
+.card .btn{font-size:13px;margin-top:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{text-align:center;background:white;padding:22px;border-radius:15px;border:1px solid #e5eef2}
+.num{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;background:var(--blue);color:white;display:grid;place-items:center;font-weight:800}
+.services{background:var(--light)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.service{background:white;padding:18px;border-radius:13px;font-weight:600}
+.form-wrap{max-width:780px;margin:auto;background:white;padding:28px;border-radius:18px;box-shadow:0 5px 25px #12394b0d}
+label{display:block;font-weight:700;font-size:14px;margin:15px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d4e1e6;border-radius:9px;font:inherit;background:white}
+input:focus,select:focus,textarea:focus{outline:2px solid #9edbcf;border-color:var(--accent)}
+.file{background:#f5f9fa;padding:12px;border-radius:9px}
+.upload-note{font-size:12px;color:var(--muted);margin-top:8px}
+.check{display:flex;gap:9px;align-items:flex-start;margin:18px 0;font-size:13px}
+.check input{width:auto;margin-top:5px}
+.faq{max-width:800px;margin:auto}
+details{background:white;margin:10px 0;padding:16px 18px;border-radius:11px;border:1px solid #e2edf1}
+summary{font-weight:700;cursor:pointer}
+.contact{background:var(--dark);color:white}
+.contact .section-title h2{color:white}
+.contact .section-title p{color:#cde1e9}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.contact-box{background:#ffffff10;border:1px solid #ffffff18;padding:22px;border-radius:14px;text-align:center}
+footer{background:#042b3d;color:#c5d8df;padding:25px 20px;text-align:center;font-size:13px}
+.whatsapp{position:fixed;right:18px;bottom:18px;background:#25d366;color:white;width:55px;height:55px;border-radius:50%;display:grid;place-items:center;font-size:25px;box-shadow:0 5px 18px #0004;z-index:30}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:50;padding:20px;overflow:auto}
+.modal-box{background:white;max-width:600px;margin:50px auto;border-radius:18px;padding:25px;position:relative}
+.close{position:absolute;right:18px;top:12px;border:0;background:none;font-size:25px;cursor:pointer}
+.modal-box ul{margin:15px 0 15px 20px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:15px}
+.success{display:none;background:#e8f8f1;color:#176b4d;padding:15px;border-radius:10px;margin-top:15px}
+@media(max-width:800px){
+ nav{display:none;position:absolute;top:60px;left:0;right:0;background:white;padding:15px 20px;flex-direction:column;box-shadow:0 5px 15px #0001}
+ nav.show{display:flex}.menu{display:block}
+ .hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}
+ .service-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .hero{padding:50px 18px}.container{padding:42px 16px}.grid,.steps,.service-grid{grid-template-columns:1fr}
+ h1{font-size:38px}.form-wrap{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<a class="logo" href="#home">Internship<span>Connect</span> NG</a>
+<button class="menu" onclick="toggleMenu()">☰</button>
+<nav id="nav">
+<a href="#home">Home</a>
+<a href="#opportunities">Opportunities</a>
+<a href="#services">Document Services</a>
+<a href="#requirements">Requirements</a>
+<a href="#apply">Apply</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-inner">
+<div>
+<span class="badge">🇳🇬 Healthcare Internship Application Support</span>
+<h1>Find Your Next Healthcare Internship.</h1>
+<p>Discover currently available internship opportunities, prepare your documents and organize your application with less stress.</p>
+<a href="#opportunities" class="btn primary">View Opportunities</a>
+<a href="#apply" class="btn secondary">Apply Now</a>
+<div class="notice"><strong>📢 Application Update:</strong> We are currently receiving documents for selected internship centres. Availability may change as recruitment opens or closes.</div>
+</div>
+<div class="hero-card">
+<h3>Simple. Organized. Convenient.</h3>
+<p>Choose an internship centre, check the requirements, prepare your documents and submit your application through our support process.</p>
+<br>
+<strong>Need document help?</strong>
+<p>Application letters • CVs • Recommendation letters • Affidavits • Submission support</p>
+</div>
+</div>
+</section>
+
+<section class="container" id="opportunities">
+<div class="section-title">
+<h2>Currently Accepting Applications</h2>
+<p>Available internship opportunities can be updated as recruitment opens and closes.</p>
+</div>
+<div class="grid">
+<div class="card"><h3>University of Abuja Teaching Hospital (UATH)</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('UATH')">View Requirements</button></div>
+<div class="card"><h3>University of Uyo Teaching Hospital (UUTH)</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('UUTH')">View Requirements</button></div>
+<div class="card"><h3>University of Benin Teaching Hospital (UBTH)</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('UBTH')">View Requirements</button></div>
+<div class="card"><h3>Lagos State University Teaching Hospital (LASUTH)</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('LASUTH')">View Requirements</button></div>
+<div class="card"><h3>National Hospital, Abuja</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('National Hospital')">View Requirements</button></div>
+<div class="card"><h3>Federal Medical Centre (FMC), Onitsha</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('FMC Onitsha')">View Requirements</button></div>
+<div class="card"><h3>Federal Medical Centre, Ebute Metta, Lagos</h3><span class="status">🟢 Accepting Applications</span><p>Internship application and document submission support.</p><button class="btn primary" onclick="showDetails('FMC Ebute Metta')">View Requirements</button></div>
+</div>
+<p class="disclaimer">Centre availability, deadlines and requirements should be updated by the service operator based on current recruitment information.</p>
+</section>
+
+<section class="container" style="background:#f0f7fa;max-width:none" id="how">
+<div class="section-title"><h2>How It Works</h2><p>Four simple steps from opportunity discovery to application submission.</p></div>
+<div class="steps" style="max-width:1100px;margin:auto">
+<div class="step"><div class="num">1</div><h3>Choose</h3><p>Select an available internship centre.</p></div>
+<div class="step"><div class="num">2</div><h3>Check</h3><p>Review the requirements for that opportunity.</p></div>
+<div class="step"><div class="num">3</div><h3>Prepare</h3><p>Get your documents ready and upload them.</p></div>
+<div class="step"><div class="num">4</div><h3>Submit</h3><p>Your application is organized for submission.</p></div>
+</div>
+</section>
+
+<section class="services" id="services">
+<div class="container">
+<div class="section-title"><h2>Need Help With Your Documents?</h2><p>Professional document-support services for healthcare internship applicants.</p></div>
+<div class="service-grid">
+<div class="service">✅ Application Letter Preparation</div>
+<div class="service">✅ Recommendation Letter Preparation</div>
+<div class="service">✅ CV/Resume Preparation & Review</div>
+<div class="service">✅ Licence Renewal Assistance</div>
+<div class="service">✅ Affidavit for Lost/Missing Documents</div>
+<div class="service">✅ Document Submission Support</div>
+</div>
+</div>
+</section>
+
+<section class="container" id="requirements">
+<div class="section-title"><h2>Common Application Documents</h2><p>Requirements may vary by institution, profession and current internship announcement.</p></div>
+<div class="grid">
+<div class="card"><h3>📄 Application Letter</h3><p>A properly prepared letter for the selected internship opportunity.</p></div>
+<div class="card"><h3>📑 CV / Resume</h3><p>A clear and professional curriculum vitae.</p></div>
+<div class="card"><h3>🎓 Academic Documents</h3><p>Certificate, statement of result or other relevant academic documents where required.</p></div>
+<div class="card"><h3>🪪 Professional Documents</h3><p>Licence, registration or professional documents where applicable.</p></div>
+<div class="card"><h3>📸 Passport Photograph</h3><p>Recent passport photograph where required.</p></div>
+<div class="card"><h3>⚖️ Affidavit</h3><p>Affidavit for lost or missing documents where applicable.</p></div>
+</div>
+</section>
+
+<section class="container" id="apply" style="background:#eef7fb;max-width:none">
+<div class="section-title"><h2>Start Your Internship Application</h2><p>Fill in your details and select the centre you are interested in.</p></div>
+<div class="form-wrap">
+<form id="applicationForm">
+<label>Full Name</label><input required placeholder="Enter your full name">
+<label>Phone Number</label><input type="tel" required placeholder="080...">
+<label>Email Address</label><input type="email" required placeholder="you@example.com">
+<label>Profession</label><select required><option value="">Select profession</option><option>Pharmacy</option><option>Medicine</option><option>Nursing</option><option>Medical Laboratory Science</option><option>Physiotherapy</option><option>Other Healthcare Profession</option></select>
+<label>Qualification</label><input placeholder="e.g. B.Pharm, MBBS, B.NSc">
+<label>Selected Internship Centre</label>
+<select required>
+<option value="">Select a centre</option>
+<option>University of Abuja Teaching Hospital (UATH)</option>
+<option>University of Uyo Teaching Hospital (UUTH)</option>
+<option>University of Benin Teaching Hospital (UBTH)</option>
+<option>Lagos State University Teaching Hospital (LASUTH)</option>
+<option>National Hospital, Abuja</option>
+<option>Federal Medical Centre (FMC), Onitsha</option>
+<option>Federal Medical Centre, Ebute Metta, Lagos</option>
+</select>
+
+<label>Application Letter</label><input class="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+<label>CV / Resume</label><input class="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+<label>Academic Document</label><input class="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+<label>Professional Document</label><input class="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+<label>Passport Photograph</label><input class="file" type="file" accept=".jpg,.jpeg,.png">
+<label>Affidavit / Other Supporting Document</label><input class="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+<p class="upload-note">Accepted formats: PDF, JPG, JPEG, PNG. This draft does not transmit or store uploaded documents.</p>
+
+<label class="check"><input type="checkbox" required> <span>I confirm that the information and documents I provide are accurate and belong to me.</span></label>
+<button class="btn primary" type="submit">Submit Application</button>
+<div class="success" id="success"></div>
+</form>
+</div>
+</section>
+
+<section class="container">
+<div class="section-title"><h2>Frequently Asked Questions</h2></div>
+<div class="faq">
+<details><summary>Which centres are currently accepting applications?</summary><p>Check the “Currently Accepting Applications” section above. Availability should be updated as opportunities open or close.</p></details>
+<details><summary>What documents do I need?</summary><p>Requirements can differ by centre and profession. Check the specific application instructions before submitting.</p></details>
+<details><summary>Can you help prepare my application letter or CV?</summary><p>Yes. Document preparation and review support are among the services offered.</p></details>
+<details><summary>Can you help with an affidavit?</summary><p>Affidavit support is available for applicable lost or missing document situations.</p></details>
+<details><summary>Does submitting through this service guarantee placement?</summary><p>No. Final acceptance and placement decisions remain with the relevant institution.</p></details>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-title"><h2>Ready to Apply?</h2><p>Contact us for application assistance or document-support services.</p></div>
+<div class="contact-grid">
+<div class="contact-box"><h3>💬 WhatsApp</h3><p>Chat with us for enquiries.</p><a id="waLink" class="btn primary" href="#" target="_blank">Chat on WhatsApp</a></div>
+<div class="contact-box"><h3>📧 Email</h3><p>Send us an email.</p><a class="btn secondary" href="mailto:your@email.com">Send Email</a></div>
+<div class="contact-box"><h3>📍 Location</h3><p>Nigeria</p><p>Full office address can be added here.</p></div>
+</div>
+</div>
+</section>
+
+<footer>
+<strong>Internship Connect Nigeria</strong>
+<p>Independent internship application and document-support service.</p>
+<p>Not affiliated with or representing any listed hospital or institution unless expressly stated.</p>
+<p>© 2026 Internship Connect Nigeria</p>
+</footer>
+
+<a id="floatingWA" class="whatsapp" href="#" target="_blank" aria-label="WhatsApp">✆</a>
+
+<div class="modal" id="detailsModal" onclick="if(event.target===this) closeModal()">
+<div class="modal-box">
+<button class="close" onclick="closeModal()">×</button>
+<h2 id="modalTitle">Internship Opportunity</h2>
+<span class="status">🟢 Application Information</span>
+<p id="modalText" style="margin-top:12px"></p>
+<h3 style="margin-top:18px">Common Documents</h3>
+<ul>
+<li>Application Letter</li><li>CV / Resume</li><li>Academic documents</li><li>Professional documents where applicable</li><li>Passport photograph where required</li><li>Other supporting documents where applicable</li>
+</ul>
+<p class="disclaimer">Specific requirements and deadlines should be confirmed before submission.</p>
+<a href="#apply" class="btn primary" onclick="closeModal()">Apply Through Us</a>
+</div>
+</div>
+
+<script>
+const whatsappNumber = "2348000000000"; // REPLACE WITH CLIENT'S WHATSAPP NUMBER
+
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+document.querySelectorAll("nav a").forEach(a=>{
+  a.addEventListener("click",()=>document.getElementById("nav").classList.remove("show"));
+});
+
+function showDetails(name){
+  document.getElementById("modalTitle").textContent = name;
+  document.getElementById("modalText").textContent =
+    "Application support is currently available for this internship opportunity. Please confirm the latest requirements, deadline and submission instructions before sending your documents.";
+  document.getElementById("detailsModal").style.display="block";
+}
+function closeModal(){
+  document.getElementById("detailsModal").style.display="none";
+}
+
+function waUrl(){
+  return "https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent("Hello, I am interested in the internship application opportunities.");
+}
+document.getElementById("waLink").href=waUrl();
+document.getElementById("floatingWA").href=waUrl();
+
+document.getElementById("applicationForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const ref = "ICN-" + Math.floor(100000 + Math.random()*900000);
+  const success = document.getElementById("success");
+  success.style.display="block";
+  success.innerHTML="<strong>Application Received — Demo</strong><br>Your reference number is <strong>"+ref+"</strong>.<br><small>This is a website draft. Uploaded documents have not been transmitted or stored.</small>";
+  success.scrollIntoView({behavior:"smooth",block:"center"});
+});
+</script>
+</body>
+</html>
